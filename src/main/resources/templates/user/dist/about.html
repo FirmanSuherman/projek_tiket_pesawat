@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badge - Voler Admin Dashboard</title>
+
+    <link rel="stylesheet" th:href="@{/assets/css/bootstrap.css}">
+
+    <link rel="stylesheet" th:href="@{/assets/vendors/simple-datatables/style.css}">
+
+    <link rel="stylesheet" th:href="@{/assets/vendors/perfect-scrollbar/perfect-scrollbar.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/app.css}">
+    <link rel="shortcut icon" th:href="@{/assets/images/favicon.svg}" type="image/x-icon">
+</head>
+<body>
+    <div id="app">
+        <div id="sidebar" class='active'>
+            <div class="sidebar-wrapper active">
+    <div class="sidebar-header">
+        <img th:src="@{/assets/images/logo.svg}" alt="" srcset="">
+    </div>
+        <div class="sidebar-menu">
+            <ul class="menu">
+                <li class='sidebar-title'>USER</li>
+                <li class="sidebar-item active ">
+
+                    <a th:href="@{/view/user}" class='sidebar-link'>
+                        <i data-feather="home" width="20"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="sidebar-item  has-sub">
+
+                    <a href="#" class='sidebar-link'>
+                        <i data-feather="triangle" width="20"></i>
+                        <span>Highlight</span>
+                    </a>
+                    <ul class="submenu ">
+
+                        <li>
+                            <a th:href="@{/view/about}">About</a>
+                        </li>
+
+                        <li>
+                            <a th:href="@{/view/panduan}">Panduan Booking</a>
+                        </li>
+                    </ul>
+
+                </li>
+
+                <li class='sidebar-title'>Booking</li>
+
+
+
+                <li class="sidebar-item  has-sub">
+
+                    <a href="#" class='sidebar-link'>
+                        <i data-feather="file-text" width="20"></i>
+                        <span>Booking</span>
+                    </a>
+
+
+                    <ul class="submenu ">
+
+                        <li>
+                            <a th:href="@{/view/booking}">Booking</a>
+                        </li>
+
+                        <li>
+                            <a th:href="@{/view/kursi}">Kursi</a>
+                        </li>
+
+                        <li>
+                            <a th:href="@{/view/pembayaran}">Pembayaran</a>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+
+                <li class="sidebar-item  ">
+
+                    <a th:href="@{/view/jadwal}" class='sidebar-link'>
+                        <i data-feather="grid" width="20"></i>
+                        <span>Jadwal</span>
+                    </a>
+
+
+                </li>
+
+
+
+                <li class="sidebar-item  ">
+
+                    <a th:href="@{/view/histori}" class='sidebar-link'>
+                        <i data-feather="file-plus" width="20"></i>
+                        <span>Histori Booking</span>
+                    </a>
+
+
+                </li>
+            </ul>
+        </div>
+    <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+</div>
+        </div>
+        <div id="main">
+            <nav class="navbar navbar-header navbar-expand navbar-light">
+                <a class="sidebar-toggler" href="#"><span class="navbar-toggler-icon"></span></a>
+                <button class="btn navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav d-flex align-items-center navbar-light ms-auto">
+                        <li class="dropdown nav-icon">
+                            <a href="#" data-bs-toggle="dropdown" class="nav-link  dropdown-toggle nav-link-lg nav-link-user">
+                                <div class="d-lg-inline-block">
+                                    <i data-feather="bell"></i>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end dropdown-menu-large">
+                                <h6 class='py-2 px-4'>Notifications</h6>
+                                <ul class="list-group rounded-none">
+                                    <li class="list-group-item border-0 align-items-start">
+                                        <div class="avatar bg-success me-3">
+                                            <span class="avatar-content"><i data-feather="shopping-cart"></i></span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="dropdown nav-icon me-2">
+                            <a href="#" data-bs-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                                <div class="d-lg-inline-block">
+                                    <i data-feather="mail"></i>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end" >
+                                <a class="dropdown-item" href="#"><i data-feather="user"></i> Account</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" th:href="@{/view/login}"><i data-feather="log-out"></i> Logout</a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" data-bs-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                                <div class="avatar me-1">
+                                    <img th:src="@{/assets/images/avatar/avatar-s-1.png}" alt="" srcset="">
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item" href="#"><i data-feather="user"></i> Account</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item"th:href="@{/view/login}"><i data-feather="log-out"></i> Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            
+<div class="main-content container-fluid">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <h3>About Us</h3>
+                <p class="text-subtitle text-muted">Hallo Costumer, Selamat datang ke jasa kami.</p>
+            </div>
+            <div class="col-12 col-md-6">
+                <nav aria-label="breadcrumb" class='breadcrumb-header text-right'>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a th:href="@{/view/user}">Dashboard</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">About</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+    </div>
+    <section class="section">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>HighLight Flight</h4>
+                    </div>
+                    <div class="card-body">
+                        <p>Selamat datang di HighLight Flight – solusi terbaik Anda dalam mencari, memesan, dan menikmati perjalanan udara!</p>
+                        <p>Kami percaya bahwa setiap perjalanan adalah bagian dari cerita hidup Anda, dan di HighLight Flight, kami berkomitmen untuk memastikan awal cerita itu dimulai dengan pengalaman terbaik.</p>
+                        <p>Didirikan dengan semangat untuk menghadirkan layanan yang cepat, praktis, dan terpercaya, HighLight Flight hadir sebagai platform pemesanan tiket pesawat yang ramah pengguna dan penuh inovasi.</p>
+                        <p>Di HighLight Flight, Anda tidak hanya menemukan tiket dengan harga terbaik, tetapi juga mendapatkan kemudahan dalam proses pencarian, keamanan dalam pembayaran, serta dukungan layanan pelanggan yang siap membantu kapan pun Anda membutuhkan.</p>
+                        <p>Kami bekerja sama dengan berbagai maskapai terpercaya, sehingga Anda memiliki beragam pilihan penerbangan untuk memenuhi kebutuhan perjalanan Anda, baik untuk bisnis, liburan, maupun petualangan spontan.</p>
+                        <p>Visi kami adalah menjadi platform pemesanan tiket pesawat pilihan utama yang mengutamakan kenyamanan dan kepuasan pelanggan.</p>
+                        <p>Misi kami adalah menghadirkan pengalaman pemesanan yang lebih mudah, lebih cepat, dan lebih personal — karena kami mengerti bahwa setiap perjalanan itu unik.</p>
+                        <p>Bersama HighLight Flight, perjalanan Anda bukan hanya sekadar menuju destinasi — tetapi juga menciptakan kenangan yang tak terlupakan.</p>
+                        <p>Terima kasih telah mempercayai kami untuk menjadi bagian dari perjalanan Anda.</p>
+                        <p>HighLight Flight — Your journey begins with a highlight.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h4>VISI DAN MISI</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="badges">
+                            <span class="badge bg-primary">User-Friendly</span>
+                            <span class="badge bg-secondary">Cepat</span>
+                            <span class="badge bg-success">Murah</span>
+                            <span class="badge bg-danger">Lengkap</span>
+                            <span class="badge bg-warning">Secure</span>
+                            <span class="badge bg-info">Responsif</span>
+                            <span class="badge bg-light">Fast</span>
+                            <span class="badge bg-dark">Loyal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Testimoni Costumer</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="buttons">
+                            <div class="section-title mt-0">Raksa Arya Satya</div>
+                            <p>"Pengalaman saya menggunakan HighLight Flight benar-benar luar biasa! Proses pemesanan tiketnya super cepat, pilihan maskapainya banyak, dan harganya sangat kompetitif. Yang paling saya suka, ada notifikasi real-time soal perubahan jadwal. Sangat membantu! Pasti akan terus pakai HighLight Flight untuk perjalanan berikutnya."</p>
+                            <div class="section-title">Putri Amelia</div>
+                            <p>"Pertama kali coba HighLight Flight atas rekomendasi teman, dan langsung jatuh hati! Antarmukanya gampang digunakan, layanan pelanggannya responsif, dan saya merasa aman selama proses pembayaran. Pokoknya, booking tiket pesawat jadi jauh lebih simpel dan menyenangkan. Terima kasih, HighLight Flight!"</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Dr. Rudi Hartono, M.M. – Pakar Manajemen Transportasi Udara</h4>
+                    </div>
+                    <div class="card-body">
+                        <p>"Sebagai seorang profesional yang sudah bertahun-tahun meneliti tren di industri penerbangan, saya melihat HighLight Flight sebagai inovasi yang segar dan relevan. Platform ini tidak hanya menawarkan kemudahan dalam pemesanan tiket pesawat, tetapi juga memberikan rasa aman, kecepatan layanan, dan pengalaman pengguna yang sangat intuitif. HighLight Flight membuktikan bahwa teknologi dan kebutuhan pelanggan bisa bersinergi dengan sangat baik. Saya sangat merekomendasikannya untuk para traveler modern."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+            <footer>
+                <div class="footer clearfix mb-0 text-muted">
+                    <div class="float-start">
+                        <p>2025 &copy; HIGHLIGHTFLIGHT</p>
+                    </div>
+                    <div class="float-end">
+                        <p>Crafted by <a href="https://saugi.me">Kemlompok X</a></p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script th:src="@{/assets/js/feather-icons/feather.min.js}"></script>
+    <script th:src="@{/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js}"></script>
+    <script th:src="@{/assets/js/app.js}"></script>
+
+    <script th:src="@{/assets/vendors/chartjs/Chart.min.js}"></script>
+    <script th:src="@{/assets/vendors/apexcharts/apexcharts.min.js}"></script>
+    <script th:src="@{/assets/js/pages/dashboard.js}"></script>
+
+    <script th:src="@{/assets/js/main.js}"></script>
+</body>
+</html>

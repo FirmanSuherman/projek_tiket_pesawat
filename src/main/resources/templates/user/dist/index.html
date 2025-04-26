@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HightLight-Dashboard</title>
+
+    <link rel="stylesheet" th:href="@{/assets/css/bootstrap.css}">
+
+    <link rel="stylesheet" th:href="@{/assets/vendors/simple-datatables/style.css}">
+
+    <link rel="stylesheet" th:href="@{/assets/vendors/perfect-scrollbar/perfect-scrollbar.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/app.css}">
+    <link rel="shortcut icon" th:href="@{/assets/images/favicon.svg}" type="image/x-icon">
+
+</head>
+<body>
+    <div id="app">
+        <div id="sidebar" class='active'>
+            <div class="sidebar-wrapper active">
+    <div class="sidebar-header">
+        <img th:src="@{/assets/images/logo.svg}" alt="" srcset="">
+    </div>
+    <div class="sidebar-menu">
+        <ul class="menu">
+                <li class='sidebar-title'>USER</li>
+                <li class="sidebar-item active ">
+
+                    <a th:href="@{/view/user}" class='sidebar-link'>
+                        <i data-feather="home" width="20"></i> 
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="sidebar-item  has-sub">
+
+                    <a href="#" class='sidebar-link'>
+                        <i data-feather="triangle" width="20"></i> 
+                        <span>Highlight</span>
+                    </a>
+                    <ul class="submenu ">
+                        
+                        <li>
+                            <a th:href="@{/view/about}">About</a>
+                        </li>
+                        
+                        <li>
+                            <a th:href="@{/view/panduan}">Panduan Booking</a>
+                        </li>
+                    </ul>
+                    
+                </li>
+
+                <li class='sidebar-title'>Booking</li>
+                
+            
+                
+                <li class="sidebar-item  has-sub">
+
+                    <a href="#" class='sidebar-link'>
+                        <i data-feather="file-text" width="20"></i> 
+                        <span>Booking</span>
+                    </a>
+
+                    
+                    <ul class="submenu ">
+                        
+                        <li>
+                            <a th:href="@{/view/booking}">Booking</a>
+                        </li>
+
+                        <li>
+                            <a th:href="@{/view/kursi}">Kursi</a>
+                        </li>
+
+                        <li>
+                            <a th:href="@{/view/pembayaran}">Pembayaran</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+
+                <li class="sidebar-item  ">
+
+                    <a th:href="@{/view/jadwal}" class='sidebar-link'>
+                        <i data-feather="grid" width="20"></i> 
+                        <span>Jadwal</span>
+                    </a>
+
+                    
+                </li>
+                
+            
+                
+                <li class="sidebar-item  ">
+
+                    <a th:href="@{/view/histori}" class='sidebar-link'>
+                        <i data-feather="file-plus" width="20"></i> 
+                        <span>Histori Booking</span>
+                    </a>
+
+                    
+                </li>
+        </ul>
+    </div>
+    <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+</div>
+        </div>
+        <div id="main">
+            <nav class="navbar navbar-header navbar-expand navbar-light">
+                <a class="sidebar-toggler" href="#"><span class="navbar-toggler-icon"></span></a>
+                <button class="btn navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav d-flex align-items-center navbar-light ms-auto">
+                        <li class="dropdown nav-icon">
+                            <a href="#" data-bs-toggle="dropdown" class="nav-link  dropdown-toggle nav-link-lg nav-link-user">
+                                <div class="d-lg-inline-block">
+                                    <i data-feather="bell"></i>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end dropdown-menu-large">
+                                <h6 class='py-2 px-4'>Notifications</h6>
+                                <ul class="list-group rounded-none">
+                                    <li class="list-group-item border-0 align-items-start">
+                                        <div class="avatar bg-success me-3">
+                                            <span class="avatar-content"><i data-feather="shopping-cart"></i></span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="dropdown nav-icon me-2">
+                            <a href="#" data-bs-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                                <div class="d-lg-inline-block">
+                                    <i data-feather="mail"></i>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end" >
+                                <a class="dropdown-item" href="#"><i data-feather="user"></i> Account</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" th:href="@{/view/login}"><i data-feather="log-out"></i> Logout</a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" data-bs-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                                <div class="avatar me-1">
+                                    <img th:src="@{/assets/images/avatar/avatar-s-1.png}" alt="" srcset="">
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item" href="#"><i data-feather="user"></i> Account</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" th:href="@{/view/login}"><i data-feather="log-out"></i> Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+<div class="main-content container-fluid">
+    <div class="page-title">
+        <h3>Dashboard</h3>
+        <p class="text-subtitle text-muted">Tentukan Destinasi Anda</p>
+    </div>
+    <section class="section">
+        <div class="row mb-2">
+            <div class="col-12 col-md-3">
+                <a th:href="@{/view/about}">
+                    <div class="card card-statistic">
+                        <div class="card-body p-0">
+                            <div class="d-flex flex-column">
+                                <div class='px-3 py-3 d-flex justify-content-between'>
+                                    <h3 class='card-title'>ABOUT</h3>
+                                    <div class="card-right d-flex align-items-center">
+                                        <p>GO </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-12 col-md-3">
+                <a th:href="@{/view/panduan}">
+                    <div class="card card-statistic">
+                        <div class="card-body p-0">
+                            <div class="d-flex flex-column">
+                                <div class='px-3 py-3 d-flex justify-content-between'>
+                                    <h3 class='card-title'>PANDUAN</h3>
+                                    <div class="card-right d-flex align-items-center">
+                                        <p>GO</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-12 col-md-3">
+                <a th:href="@{/view/booking}">
+                    <div class="card card-statistic">
+                        <div class="card-body p-0">
+                            <div class="d-flex flex-column">
+                                <div class='px-3 py-3 d-flex justify-content-between'>
+                                    <h3 class='card-title'>BOOKING</h3>
+                                    <div class="card-right d-flex align-items-center">
+                                        <p>GO</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-12 col-md-3">
+              <a th:href="@{/view/histori}">
+                  <div class="card card-statistic">
+                      <div class="card-body p-0">
+                          <div class="d-flex flex-column">
+                              <div class='px-3 py-3 d-flex justify-content-between'>
+                                  <h3 class='card-title'>HISTORI</h3>
+                                  <div class="card-right d-flex align-items-center">
+                                      <p>GO</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </a>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class='card-heading p-1 pl-3'>HIGHLIGHT FLIGHT</h3>
+                        <p>HighLight Flight adalah platform pemesanan tiket pesawat yang cepat, mudah, dan terpercaya. Dengan HighLight Flight, Anda bisa membandingkan harga terbaik, memilih jadwal penerbangan favorit, dan memesan tiket hanya dalam beberapa langkah sederhana. Nikmati pengalaman terbang yang lebih praktis bersama kami!</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h4 class="card-title">Your Booking</h4>
+                        <div class="d-flex ">
+                        </div>
+                    </div>
+                    <div class="card-body px-0 pb-0">
+                        <div class="table-responsive">
+                            <table class='table mb-0' id="table1">
+                                <thead>
+                                    <tr>
+                                        <th>No Booking</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Keberangkatan</th>
+                                        <th>Destinasi</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr  th:each="booking, iterStat : ${bookings}">
+                                        <td th:text="${booking.kodeBooking}"></td>
+                                        <td th:text="${users[iterStat.index].email}"></td>
+                                        <td th:text="${penumpangs[iterStat.index].noHP}"></td>
+                                        <td th:text="${penerbangans[iterStat.index].waktuKeberangkatan}"></td>
+                                        <td th:text="${penerbangans[iterStat.index].kotaTujuan}"></td>
+                                        <td th:text="${booking.statusPembayaran}"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card ">
+                    <div class="card-header">
+                        <h4>Hallo Costumer !</h4>
+                        <p>Kami sangat senang Anda telah memilih untuk menjelajahi dunia bersama kami.
+                            HighLight Flight hadir untuk membantu Anda menemukan tiket pesawat terbaik dengan cara yang cepat, mudah, dan nyaman.</p>
+                        <p>Di sini, setiap pencarian bukan hanya soal harga — tapi soal pengalaman, kenyamanan, dan perjalanan yang berkesan.</p>
+                        <p>Kami percaya bahwa setiap perjalanan dimulai bahkan sebelum Anda terbang, dan kami ingin memastikan momen itu dimulai dengan kesan terbaik.</p>
+                        <p>Terima kasih telah mempercayakan perjalanan Anda kepada kami.
+                            Selamat menjelajah, dan semoga perjalanan Anda menyenangkan!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+            <footer>
+                <div class="footer clearfix mb-0 text-muted">
+                    <div class="float-start">
+                        <p>2025 &copy; HIGHLIGHTFLIGHT</p>
+                    </div>
+                    <div class="float-end">
+                        <p>Crafted with by <a href="https://saugi.me">Kelompok X</a></p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script th:src="@{/assets/js/feather-icons/feather.min.js}"></script>
+    <script th:src="@{/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js}"></script>
+    <script th:src="@{/assets/js/app.js}"></script>
+    
+    <script th:src="@{/assets/vendors/chartjs/Chart.min.js}"></script>
+    <script th:src="@{/assets/vendors/apexcharts/apexcharts.min.js}"></script>
+    <script th:src="@{/assets/js/pages/dashboard.js}"></script>
+
+    <script th:src="@{/assets/js/main.js}"></script>
+</body>
+</html>

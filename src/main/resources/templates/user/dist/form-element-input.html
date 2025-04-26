@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input - Voler Admin Dashboard</title>
+
+
+    <link rel="stylesheet" th:href="@{/assets/css/bootstrap.css}">
+
+    <link rel="stylesheet" th:href="@{/assets/vendors/simple-datatables/style.css}">
+
+    <link rel="stylesheet" th:href="@{/assets/vendors/perfect-scrollbar/perfect-scrollbar.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/app.css}">
+    <link rel="shortcut icon" th:href="@{/assets/images/favicon.svg}" type="image/x-icon">
+</head>
+<body>
+    <div id="app">
+        <div id="sidebar" class='active'>
+            <div class="sidebar-wrapper active">
+    <div class="sidebar-header">
+        <img th:src="@{/assets/images/logo.svg}" alt="" srcset="">
+    </div>
+                <div class="sidebar-menu">
+                    <ul class="menu">
+                        <li class='sidebar-title'>USER</li>
+                        <li class="sidebar-item active ">
+
+                            <a th:href="@{/view/user}" class='sidebar-link'>
+                                <i data-feather="home" width="20"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item  has-sub">
+
+                            <a href="#" class='sidebar-link'>
+                                <i data-feather="triangle" width="20"></i>
+                                <span>Highlight</span>
+                            </a>
+                            <ul class="submenu ">
+
+                                <li>
+                                    <a th:href="@{/view/about}">About</a>
+                                </li>
+
+                                <li>
+                                    <a th:href="@{/view/panduan}">Panduan Booking</a>
+                                </li>
+                            </ul>
+
+                        </li>
+
+                        <li class='sidebar-title'>Booking</li>
+
+
+
+                        <li class="sidebar-item  has-sub">
+
+                            <a href="#" class='sidebar-link'>
+                                <i data-feather="file-text" width="20"></i>
+                                <span>Booking</span>
+                            </a>
+
+
+                            <ul class="submenu ">
+
+                                <li>
+                                    <a th:href="@{/view/booking}">Booking</a>
+                                </li>
+
+                                <li>
+                                    <a th:href="@{/view/kursi}">Kursi</a>
+                                </li>
+
+                                <li>
+                                    <a th:href="@{/view/pembayaran}">Pembayaran</a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
+
+                        <li class="sidebar-item  ">
+
+                            <a th:href="@{/view/jadwal}" class='sidebar-link'>
+                                <i data-feather="grid" width="20"></i>
+                                <span>Jadwal</span>
+                            </a>
+
+
+                        </li>
+
+
+
+                        <li class="sidebar-item  ">
+
+                            <a th:href="@{/view/histori}" class='sidebar-link'>
+                                <i data-feather="file-plus" width="20"></i>
+                                <span>Histori Booking</span>
+                            </a>
+
+
+                        </li>
+                    </ul>
+                </div>
+    <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+</div>
+        </div>
+        <div id="main">
+            <nav class="navbar navbar-header navbar-expand navbar-light">
+                <a class="sidebar-toggler" href="#"><span class="navbar-toggler-icon"></span></a>
+                <button class="btn navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav d-flex align-items-center navbar-light ms-auto">
+                        <li class="dropdown nav-icon">
+                            <a href="#" data-bs-toggle="dropdown" class="nav-link  dropdown-toggle nav-link-lg nav-link-user">
+                                <div class="d-lg-inline-block">
+                                    <i data-feather="bell"></i>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end dropdown-menu-large">
+                                <h6 class='py-2 px-4'>Notifications</h6>
+                                <ul class="list-group rounded-none">
+                                    <li class="list-group-item border-0 align-items-start">
+                                        <div class="avatar bg-success me-3">
+                                            <span class="avatar-content"><i data-feather="shopping-cart"></i></span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="dropdown nav-icon me-2">
+                            <a href="#" data-bs-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                                <div class="d-lg-inline-block">
+                                    <i data-feather="mail"></i>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end" >
+                                <a class="dropdown-item" href="#"><i data-feather="user"></i> Account</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" th:href="@{/view/login}"><i data-feather="log-out"></i> Logout</a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" data-bs-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                                <div class="avatar me-1">
+                                    <img th:src="@{/assets/images/avatar/avatar-s-1.png}" alt="" srcset="">
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item" href="#"><i data-feather="user"></i> Account</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" th:href="@{/view/login}"><i data-feather="log-out"></i> Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="main-content container-fluid">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-12 col-md-6 order-md-1 order-last">
+                <h3>Booking</h3>
+                <p class="text-subtitle text-muted">Enjoy Your Journey.</p>
+            </div>
+            <div class="col-12 col-md-6 order-md-2 order-first">
+                <nav aria-label="breadcrumb" class='breadcrumb-header'>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a th:href="@{/view/user}">Dashboard</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Booking</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Booking Penerbangan</h4>
+            </div>
+            
+            <div class="card-body">
+                <div class="form-group">
+                        <br>
+                        <h6>Kota Tujuan</h6>
+                        <fieldset class="form-group">
+                            <select class="form-select" id="kTujuan">
+                                <option>IT</option>
+                                <option>Blade Runner</option>
+                                <option>Thor Ragnarok</option>
+                            </select>
+                        </fieldset>
+                        <br>
+                        <h6>Waktu Kedatangan</h6>
+                        <fieldset class="form-group">
+                            <select class="form-select" id="wDatang">
+                                <option>IT</option>
+                                <option>Blade Runner</option>
+                                <option>Thor Ragnarok</option>
+                            </select>
+                        </fieldset>
+                        <br>
+                        <h6>Total Harga</h6>
+                        <fieldset class="form-group">
+                            <select class="form-select" disabled="disabled" id="disabledSelect">
+                                <option>Green</option>
+                                <option>Red</option>
+                                <option>Blue</option>
+                            </select>
+                        </fieldset>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+    <!-- Basic Inputs end -->
+    
+    <!-- Input Style start -->
+    <section id="input-style">
+        <div class="row match-height">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Data Diri</h4>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                            <form class="form">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label for="first-name-column">Nama Lengkap</label>
+                                        <input type="text" id="first-name-column" class="form-control" placeholder="Nama Lengkap"
+                                               name="fname-column">
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="last-name-column">Email</label>
+                                        <input type="email" id="last-name-column" class="form-control" placeholder="Email"
+                                               name="lname-column">
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="city-column">No Handphone</label>
+                                        <input type="number" id="city-column" class="form-control" placeholder="08xxxxx" name="city-column">
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="country-floating">Asal Negara</label>
+                                        <input type="text" id="country-floating" class="form-control" name="negara"
+                                               placeholder="Indonesia">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Input Style end -->
+
+    
+    <!-- Basic File Browser start -->
+    <section id="input-file-browser">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Input KTP</h4>
+                    </div>
+                    
+                        <div class="card-body">
+                            <div class="row">
+                                <p>Upload KTP</p>
+                                <div class="form-file">
+                                    <input type="file" class="form-file-input" id="customFile">
+                                    <label class="form-file-label" for="customFile">
+                                        <span class="form-file-text">Choose file...</span>
+                                        <span class="form-file-button">Browse</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Basic File Browser end -->
+
+    <!-- validations start -->
+    <section id="input-validation">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Konfirmasi Pemesanan</h4>
+                    </div>
+                    
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="d-grid gap-2">
+                                    <button type="submit" class="btn btn-secondary btn-lg">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- validations end -->
+    
+  
+</div>
+
+            <footer>
+                <div class="footer clearfix mb-0 text-muted">
+                    <div class="float-start">
+                        <p>2025 &copy; HIGHLIGHTFLIGHT</p>
+                    </div>
+                    <div class="float-end">
+                        <p>Crafted by <a href="https://saugi.me">Kelompok 5</a></p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script th:src="@{/assets/js/feather-icons/feather.min.js}"></script>
+    <script th:src="@{/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js}"></script>
+    <script th:src="@{/assets/js/app.js}"></script>
+
+    <script th:src="@{/assets/vendors/chartjs/Chart.min.js}"></script>
+    <script th:src="@{/assets/vendors/apexcharts/apexcharts.min.js}"></script>
+    <script th:src="@{/assets/js/pages/dashboard.js}"></script>
+
+    <script th:src="@{/assets/js/main.js}"></script>
+</body>
+</html>

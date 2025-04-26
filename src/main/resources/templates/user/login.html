@@ -574,7 +574,7 @@
             if(data.data.Role=='ADMIN')
                 window.location.href = '/admin/dashboard'; // Change to your desired URL
             else
-                window.location.href = '/user/dashboard';
+                window.location.href = '/view/login/otp';
         })
         .catch(error => {
             console.error('Error:', error);
@@ -609,7 +609,7 @@
                 // Proses data yang diterima dari server
                 console.log(data);
                 // Redirect atau tampilkan pesan sukses
-                window.location.href = '/user/dashboard'; // Ganti dengan URL yang sesuai
+                window.location.href = '/user/'; // Ganti dengan URL yang sesuai
             })
             .catch(error => {
                 console.error('Error:', error);
